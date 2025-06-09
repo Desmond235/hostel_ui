@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hostel_ui/components/bottoom_nav_bar.dart';
+import 'package:hostel_ui/components/chip.dart';
 
 class Mainscreen extends StatefulWidget {
   const Mainscreen({super.key});
@@ -53,11 +55,13 @@ class _MainscreenState extends State<Mainscreen> {
                   topRight: Radius.circular(35),
                 ),
               ),
-              child: Text("main content"),
+              child: Column(children: [ChipWidget(size: size)]),
             ),
           ),
+          BottomNavBar(),
         ],
       ),
     );
   }
 }
+
