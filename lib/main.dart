@@ -22,12 +22,13 @@ class MyApp extends StatelessWidget {
             fontSize: 25
           ),
           bodySmall: TextStyle(
-            color: Colors.grey.shade600,
-            fontSize: 15
+            color: Colors.grey.shade800,
+            fontSize: 17
           ),
           bodyMedium: TextStyle(
             color: Colors.black,
-            fontSize: 18
+            fontSize: 20,
+            fontWeight: FontWeight.bold
           )
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
