@@ -15,7 +15,7 @@ class _ChipWidgetState extends State<ChipWidget> {
   Widget build(BuildContext context) {
     return SizedBox(
       width: widget.size.width,
-      height: 100,
+      height: 50,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: chipList.length,
@@ -23,7 +23,7 @@ class _ChipWidgetState extends State<ChipWidget> {
           final isSelected = selectedIndex == index;
           return Row(
             children: [
-              Padding(
+              Container(
                 padding: const EdgeInsets.all(5),
                 child: ActionChip(
                   padding: const EdgeInsets.all(13),
