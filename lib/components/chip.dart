@@ -23,23 +23,26 @@ class _ChipWidgetState extends State<ChipWidget> {
           final isSelected = selectedIndex == index;
           return Row(
             children: [
-              ActionChip(
-                padding: const EdgeInsets.all(13),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(25)
-                ),
-                label: Text(
-                  chipList[index],
-                  style: TextTheme.of(context).bodySmall!.copyWith(
-                    color: isSelected ? Colors.white : Colors.grey.shade700,
+              Container(
+                padding: const EdgeInsets.all(5),
+                child: ActionChip(
+                  padding: const EdgeInsets.all(10),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(25)
                   ),
+                  label: Text(
+                    chipList[index],
+                    style: TextTheme.of(context).bodySmall!.copyWith(
+                      color: isSelected ? Colors.white : Colors.grey.shade700,
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      selectedIndex = index;
+                    });
+                  },
+                  backgroundColor:  isSelected ? Color(0xff0ba357) : Colors.white,
                 ),
-                onPressed: () {
-                  setState(() {
-                    selectedIndex = index;
-                  });
-                },
-                backgroundColor:  isSelected ? Color(0xff0ba357) : Colors.white,
               ),
             ],
           );
