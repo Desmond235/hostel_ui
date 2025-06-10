@@ -21,7 +21,7 @@ class _BuildCardState extends State<BuildCard> {
           return Container(
             margin: const EdgeInsets.only(bottom: 10),
             height: 350,
-            width: MediaQuery.of(context).size.height ,
+            width: MediaQuery.of(context).size.height,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -35,47 +35,48 @@ class _BuildCardState extends State<BuildCard> {
                   child: ClipRRect(
                     borderRadius: BorderRadiusGeometry.circular(20),
                     child: Stack(
-                      children: [Image.asset(
-                        data['image'],
-                        width: MediaQuery.of(context).size.width,
-                        height: 220,
-                        fit: BoxFit.cover,
-                      ),
-                      Positioned(
-                        top: 10,
-                        left: 10,
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Color(0xff33302f),
-                            borderRadius: BorderRadius.circular(25)
-                          ),
-                          child: Text(
-                            data['tag'],
-                            style:  TextTheme.of(context).bodySmall!.copyWith(
-                              color: Colors.white,
-                              fontSize: 16,
+                      children: [
+                        Image.asset(
+                          data['image'],
+                          width: MediaQuery.of(context).size.width,
+                          height: 220,
+                          fit: BoxFit.cover,
+                        ),
+                        Positioned(
+                          top: 10,
+                          left: 10,
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Color(0xff33302f),
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Text(
+                              data['tag'],
+                              style: TextTheme.of(context).bodySmall!.copyWith(
+                                color: Colors.white,
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: 10,
-                        right: 10,
-                        child: Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: Color(0xff33302f),
-                            borderRadius: BorderRadius.circular(25)
+                        Positioned(
+                          top: 10,
+                          right: 10,
+                          child: Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: BoxDecoration(
+                              color: Color(0xff33302f),
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                            child: Icon(
+                              Icons.favorite,
+                              color: Colors.white,
+                              size: 25,
+                            ),
                           ),
-                          child: Icon(
-                            Icons.favorite,
-                            color: Colors.white,
-                            size: 25,
-                          )
                         ),
-                      )
-                      ]
+                      ],
                     ),
                   ),
                 ),
@@ -83,14 +84,11 @@ class _BuildCardState extends State<BuildCard> {
                   padding: const EdgeInsets.all(15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(data['description']),
-                      Text(data['price'])
-                    ],
+                    children: [Text(data['description']), Text(data['price'])],
                   ),
                 ),
                 Row(
-                  children: List.generate(Data.bottomList.length, (index){
+                  children: List.generate(Data.bottomList.length, (index) {
                     final data = Data.bottomList[index];
                     return Padding(
                       padding: const EdgeInsets.all(0),
@@ -101,8 +99,8 @@ class _BuildCardState extends State<BuildCard> {
                           borderRadius: BorderRadius.circular(20),
                           border: Border.all(
                             width: 1,
-                            color: Colors.grey.shade700
-                          )
+                            color: Colors.grey.shade700,
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -110,14 +108,17 @@ class _BuildCardState extends State<BuildCard> {
                             children: [
                               data['icon'],
                               const SizedBox(width: 3),
-                              Text(data['description'], style: TextTheme.of(context).bodySmall,)
+                              Text(
+                                data['description'],
+                                style: TextTheme.of(context).bodySmall,
+                              ),
                             ],
                           ),
                         ),
                       ),
                     );
                   }),
-                )
+                ),
               ],
             ),
           );
