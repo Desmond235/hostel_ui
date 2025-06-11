@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hostel_ui/data/data.dart';
+import 'package:hostel_ui/screens/chatscreen.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key, required this.isVisible});
@@ -37,6 +38,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
                       onTap: () {
                         selectedIndex = index;
                         setState(() {});
+
+                        if(selectedIndex == 3){
+                          Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const ChatScreen()));
+                        }else{
+                          return;
+                        }
                       },
                       child: Container(
                         padding: const EdgeInsets.all(15),
