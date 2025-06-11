@@ -61,4 +61,61 @@ class Data{
       "description": "Miame, FL"
     }
   ];
+
+   static final List<Map<String, dynamic>> chatData = [
+    {
+      "image": "assets/images/man_white_suit.jpg",
+      "name": "Desmond Adabe",
+      "message": "Hello, how are you?",
+      "time": "10:00 AM",
+    },
+    {
+      "image": "assets/images/woman_hot.jpg",
+      "name": "Francisca Bae",
+      "message": "You are very pretty and hot",
+      "time": "3:00 PM",
+    },
+    {
+      "image": "assets/images/woman_hat.jpg",
+      "name": "Linda Asamoah",
+      "message": "Politics is not all the bad",
+      "time": "Sat",
+    },
+    {
+      "image": "assets/images/man_sweater.jpg",
+      "name": "John",
+      "message": "I am a software developer",
+      "time": "Mon",
+    },
+    {
+      "image": "assets/images/woman_white.jpg",
+      'name': "Sweet Joana",
+      "message": "I will see you tonight at the event",
+      "time": "Wed",
+    },
+    {
+      "image": "assets/images/man_black.jpg",
+      "name": "Gustavo Lopez",
+      "message": "Yes, that would be nice",
+      "time": "Thu",
+    },
+    {
+      "image": "assets/images/woman_china.jpg",
+      "name": "Pretty Sasha",
+      "message": "You are very cute",
+      "time": "Fri"
+    },
+    {
+      "image": "assets/images/man_white.jpg",
+      "name": "Richard Mensah",
+      "message": "The event will take place at Kimspiki Hotel",
+      "time": "6/10/25"
+    },
+    {
+      "image": "assets/images/woman_islam.jpg",
+      "name": "Farida Mohammed",
+      "message": "I will pay you a visit someday",
+      "time": "6/10/25"
+    }
+   ];
   }
