@@ -58,7 +58,7 @@ class _MainscreenState extends State<Mainscreen> {
     return Scaffold(
       body: Stack(
         children: [
-          buildTitleContainer(size, context),
+          buildTitleContainer(size, context, "Saved Property"),
           Positioned(
             top: MediaQuery.of(context).size.height * 0.132,
             left: 0,
