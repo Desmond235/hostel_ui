@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Positioned buildTitleContainer(Size size, BuildContext context) {
+Positioned buildTitleContainer(Size size, BuildContext context, String title) {
   return Positioned(
     top: 0,
     left: 0,
@@ -19,7 +19,7 @@ Positioned buildTitleContainer(Size size, BuildContext context) {
         child: Container(
           margin: const EdgeInsets.only(top: 40),
           child: Text(
-            "Saved Property",
+            title,
             style: TextTheme.of(context).titleSmall,
           ),
         ),
