@@ -39,9 +39,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         selectedIndex = index;
                         setState(() {});
 
-                        if(selectedIndex == 3){
-                          Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => const ChatScreen()));
-                        }else{
+                        if (selectedIndex == 3) {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (ctx) => const ChatScreen(),
+                            ),
+                          );
+                        } else {
                           return;
                         }
                       },
