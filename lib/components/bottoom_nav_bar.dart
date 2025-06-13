@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hostel_ui/data/data.dart';
-import 'package:hostel_ui/screens/chatscreen.dart';
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key, required this.isVisible});
+class BottomNavBar extends StatelessWidget {
+  const BottomNavBar({super.key, required this.currentIndex, required this.onItemTapped, required this.isVisible});
+  final int currentIndex;
+  final Function(int) onItemTapped;
   final bool isVisible;
 
-  @override
-  State<BottomNavBar> createState() => _BottomNavBarState();
-}
-
-class _BottomNavBarState extends State<BottomNavBar> {
-  int selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Positioned(
@@ -19,7 +14,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       left: MediaQuery.of(context).size.width * 0.085,
       child: Center(
         child: AnimatedOpacity(
-          opacity: widget.isVisible ? 1.0 : 0.0,
+          opacity: isVisible ? 1.0 : 0.0,
           duration: const Duration(milliseconds: 400),
           child: Container(
             alignment: Alignment.center,
@@ -31,24 +26,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
             child: Row(
               children: [
                 ...List.generate(Data.iconSet.length, (index) {
-                  final isSelected = index == selectedIndex;
+                  final isSelected = index == currentIndex;
                   return Padding(
                     padding: const EdgeInsets.all(3),
                     child: InkWell(
-                      onTap: () {
-                        selectedIndex = index;
-                        setState(() {});
-
-                        if (selectedIndex == 3) {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (ctx) => const ChatScreen(),
-                            ),
-                          );
-                        } else {
-                          return;
-                        }
-                      },
+                      onTap: () => onItemTapped(index),
                       child: Container(
                         padding: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
