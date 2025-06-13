@@ -18,13 +18,14 @@ class Data{
 
   static const List<Map<String, dynamic>> propertyList = [
     {
-      "image": 'assets/images/house1.jpg',
+      "image": 'assets/images/house3.jpg',
       "tag": "Rent",
       "icon": Icons.favorite,
       "price": "\$700",
       "description": "Casa Solana"
       },
       {
+
       "image": 'assets/images/house2.jpg',
       "tag": "Apartment",
       "icon": Icons.favorite,
