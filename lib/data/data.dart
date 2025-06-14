@@ -65,7 +65,7 @@ class Data{
 
    static final List<Map<String, dynamic>> chatData = [
     {
-      "image": "assets/images/man_white_suit.jpg",
+      "image": "assets/images/man_jacket.jpg",
       "name": "Desmond Adabe",
       "message": "Hello, how are you?",
       "time": "10:00 AM",
