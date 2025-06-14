@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hostel_ui/components/custom_dialog.dart';
 import 'package:hostel_ui/data/data.dart';
 
 class ChatList extends StatelessWidget {
@@ -22,9 +23,14 @@ class ChatList extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage(data['image']),
+                    GestureDetector(
+                      onTap: (){
+                        CustomDialog.show(context: context, image: data['image']);
+                      },
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: AssetImage(data['image']),
+                      ),
                     ),
                     const SizedBox(width: 20),
                     Expanded(
