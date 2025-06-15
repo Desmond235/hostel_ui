@@ -13,6 +13,7 @@ class MainWrapper extends StatefulWidget {
 class _MainWrapperState extends State<MainWrapper> {
   int _currentIndex= 0;
   late ScrollController _controller;
+  late ScrollController _chatListController;
   late PageController _pageController;
   bool _isVisible = true;
 
@@ -20,7 +21,6 @@ class _MainWrapperState extends State<MainWrapper> {
   void initState() {
     super.initState();
     _controller = ScrollController();
-    _pageController = PageController(initialPage: _currentIndex);
     _controller.addListener((){
       final direction = _controller.position.userScrollDirection;
       if(direction == ScrollDirection.reverse){
@@ -33,13 +33,29 @@ class _MainWrapperState extends State<MainWrapper> {
         });
       }
     });
+
+    _chatListController = ScrollController();
+    _chatListController.addListener((){
+      final direction = _chatListController.position.userScrollDirection;
+      if(direction == ScrollDirection.reverse){
+        setState(() {
+          _isVisible = false;
+        });
+      }else if(direction == ScrollDirection.forward){
+        setState(() {
+          _isVisible = true;
+        });
+      }
+    });
     
+    _pageController = PageController(initialPage: _currentIndex);
   }
 
    @override
     void dispose() {
       super.dispose();
         _controller.dispose();
+        _chatListController.dispose();
         _pageController.dispose();
     }
 
@@ -51,7 +67,7 @@ class _MainWrapperState extends State<MainWrapper> {
   }
   @override
   Widget build(BuildContext context) {
-    final pageList = pages(_controller);
+    final pageList = pages(_controller, _chatListController);
     return Scaffold(
       body: Stack(
         children: [
