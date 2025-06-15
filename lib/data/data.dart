@@ -117,6 +117,12 @@ class Data{
       "name": "Farida Mohammed",
       "message": "I will pay you a visit someday",
       "time": "6/10/25"
+    },
+    {
+      "image": "assets/images/woman_yellow.jpg",
+      "name": "Cynthia Adjei",
+      "message": "Hello, How do you do?",
+      "time": "6/09/25"
     }
    ];
   }
