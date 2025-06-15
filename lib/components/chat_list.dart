@@ -3,12 +3,14 @@ import 'package:hostel_ui/components/custom_dialog.dart';
 import 'package:hostel_ui/data/data.dart';
 
 class ChatList extends StatelessWidget {
-  const ChatList({super.key});
+  const ChatList({super.key, required this.controller});
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: Data.chatData.length,
+      controller: controller,
       itemBuilder: (context, index) {
         final data = Data.chatData[index];
         return Container(
