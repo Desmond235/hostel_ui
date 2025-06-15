@@ -13,12 +13,14 @@ class MainWrapper extends StatefulWidget {
 class _MainWrapperState extends State<MainWrapper> {
   int _currentIndex= 0;
   late ScrollController _controller;
+  late PageController _pageController;
   bool _isVisible = true;
 
   @override
   void initState() {
     super.initState();
     _controller = ScrollController();
+    _pageController = PageController(initialPage: _currentIndex);
     _controller.addListener((){
       final direction = _controller.position.userScrollDirection;
       if(direction == ScrollDirection.reverse){
@@ -34,17 +36,36 @@ class _MainWrapperState extends State<MainWrapper> {
     
   }
 
+   @override
+    void dispose() {
+      super.dispose();
+        _controller.dispose();
+        _pageController.dispose();
+    }
+
   void _onItemTapped(int index){
     setState(() {
       _currentIndex = index;
     });
+    _pageController.jumpToPage(index);
   }
   @override
   Widget build(BuildContext context) {
+    final pageList = pages(_controller);
     return Scaffold(
       body: Stack(
         children: [
-          pages(_controller)[_currentIndex],
+          PageView(
+            controller: _pageController,
+            onPageChanged: (index){
+              setState(() {
+                _currentIndex = index;
+              });
+            },
+            children: [
+              ...pageList
+            ],
+          ),
           BottomNavBar(
             currentIndex: _currentIndex,
             onItemTapped: _onItemTapped,
