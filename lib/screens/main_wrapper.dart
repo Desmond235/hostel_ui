@@ -17,37 +17,29 @@ class _MainWrapperState extends State<MainWrapper> {
   late PageController _pageController;
   bool _isVisible = true;
 
+  void listener(ScrollController controller){
+    controller.addListener((){
+      final direction = controller.position.userScrollDirection;
+      if(direction == ScrollDirection.reverse){
+        setState(() {
+          _isVisible = false;
+        });
+      }else if(direction == ScrollDirection.forward){
+        setState(() {
+          _isVisible = true;
+        });
+      }
+
+    });
+  }
+
   @override
   void initState() {
     super.initState();
     _controller = ScrollController();
-    _controller.addListener((){
-      final direction = _controller.position.userScrollDirection;
-      if(direction == ScrollDirection.reverse){
-        setState(() {
-          _isVisible = false;
-        });
-      }else if(direction == ScrollDirection.forward){
-        setState(() {
-          _isVisible = true;
-        });
-      }
-    });
-
+    listener(_controller);
     _chatListController = ScrollController();
-    _chatListController.addListener((){
-      final direction = _chatListController.position.userScrollDirection;
-      if(direction == ScrollDirection.reverse){
-        setState(() {
-          _isVisible = false;
-        });
-      }else if(direction == ScrollDirection.forward){
-        setState(() {
-          _isVisible = true;
-        });
-      }
-    });
-    
+    listener(_chatListController);
     _pageController = PageController(initialPage: _currentIndex);
   }
 
