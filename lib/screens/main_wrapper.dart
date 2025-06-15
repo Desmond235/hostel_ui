@@ -17,6 +17,9 @@ class _MainWrapperState extends State<MainWrapper> {
   late PageController _pageController;
   bool _isVisible = true;
 
+
+  /// Listens to the given [ScrollController] and updates [_isVisible] whether the bottom nav bar should be shown
+  /// or hidden based on the user's scrolling direction.
   void listener(ScrollController controller){
     controller.addListener((){
       final direction = controller.position.userScrollDirection;
