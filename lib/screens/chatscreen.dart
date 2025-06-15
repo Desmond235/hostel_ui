@@ -3,7 +3,8 @@ import 'package:hostel_ui/components/build_title_container.dart';
 import 'package:hostel_ui/components/chat_list.dart';
 
 class ChatScreen extends StatelessWidget {
-  const ChatScreen({super.key});
+  const ChatScreen({super.key, required this.controller});
+  final ScrollController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class ChatScreen extends StatelessWidget {
                   topRight: Radius.circular(35),
                 ),
               ),
-              child: ChatList(),
+              child: ChatList(controller: controller,),
             ),
           ),
         ],
