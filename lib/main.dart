@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hostel_ui/screens/main_screen.dart';
-// import 'package:hostel_ui/screens/chatscreen.dart';
-import 'package:hostel_ui/screens/favorites_screen.dart';
 
 void main() {
   runApp(const MyApp());
