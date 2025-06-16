@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hostel_ui/screens/main_wrapper.dart';
+import 'package:hostel_ui/screens/main_screen.dart';
 // import 'package:hostel_ui/screens/chatscreen.dart';
-import 'package:hostel_ui/screens/mainscreen.dart';
+import 'package:hostel_ui/screens/favorites_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MainWrapper(),
+      home: const MainScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
